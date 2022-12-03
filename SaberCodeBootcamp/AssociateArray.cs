@@ -14,7 +14,7 @@ namespace SaberCodeBootcamp
             var arrayOfArrays = CoupleRows(dataTables);
 
             var prettyArray = PrettyPrintArrayOfArrays(arrayOfArrays);
-            Console.WriteLine(prettyArray);
+            //Console.WriteLine(prettyArray);
 
         }
 
