@@ -15,7 +15,9 @@ namespace SaberCodeBootcamp
 
             AssociateArray.MainAssociateArray();
 
-            //CreatePalindromCombination.MainCreateCombinationPalindrom();
+            CreatePalindromCombination.MainCreateCombinationPalindrom();
+
+            //GetDomainUrl.PrintDomainUrl();
         }
     }
 }
