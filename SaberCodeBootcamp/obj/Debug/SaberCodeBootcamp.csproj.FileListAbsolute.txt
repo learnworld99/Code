@@ -6,3 +6,11 @@ D:\test_job\sabercode\SaberCodeBootcamp\obj\Debug\SaberCodeBootcamp.csproj.Sugge
 D:\test_job\sabercode\SaberCodeBootcamp\obj\Debug\SaberCodeBootcamp.csproj.CoreCompileInputs.cache
 D:\test_job\sabercode\SaberCodeBootcamp\obj\Debug\SaberCodeBootcamp.exe
 D:\test_job\sabercode\SaberCodeBootcamp\obj\Debug\SaberCodeBootcamp.pdb
+D:\Riyan\Ndorone\SanberCode\SaberCodeBootcamp\obj\Debug\SaberCodeBootcamp.csproj.AssemblyReference.cache
+D:\Riyan\Ndorone\SanberCode\SaberCodeBootcamp\obj\Debug\SaberCodeBootcamp.csproj.SuggestedBindingRedirects.cache
+D:\Riyan\Ndorone\SanberCode\SaberCodeBootcamp\obj\Debug\SaberCodeBootcamp.csproj.CoreCompileInputs.cache
+D:\Riyan\Ndorone\SanberCode\SaberCodeBootcamp\obj\Debug\SaberCodeBootcamp.exe
+D:\Riyan\Ndorone\SanberCode\SaberCodeBootcamp\obj\Debug\SaberCodeBootcamp.pdb
+D:\Riyan\Ndorone\SanberCode\SaberCodeBootcamp\bin\Debug\SaberCodeBootcamp.exe.config
+D:\Riyan\Ndorone\SanberCode\SaberCodeBootcamp\bin\Debug\SaberCodeBootcamp.exe
+D:\Riyan\Ndorone\SanberCode\SaberCodeBootcamp\bin\Debug\SaberCodeBootcamp.pdb

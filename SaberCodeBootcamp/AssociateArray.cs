@@ -11,45 +11,51 @@ namespace SaberCodeBootcamp
         public static void MainAssociateArray()
         {
             var dataTables = Data.DataTables;
+            var arrayOfArrays = CoupleRows(dataTables);
 
-            //var queryOrderDataTables = dataTables.OrderBy(col => col.Field2);
+            var prettyArray = PrettyPrintArrayOfArrays(arrayOfArrays);
+            Console.WriteLine(prettyArray);
 
-            CoupleRows(dataTables);
         }
 
-        public static List<List<DataTable>> CoupleRows(List<DataTable> dataTables)
+        public static List<string[]> CoupleRows(List<DataTable> dataTables)
         {
-            List<List<DataTable>> listCoupleRows = new List<List<DataTable>>()
+            var groupDtByField2 = dataTables.OrderBy(o => o.Field2).ThenByDescending(o => o.Field3).GroupBy(g => g.Field2).ToArray();
+            var listCoupleRows = new List<string[]>();
+
+            foreach (var dt in groupDtByField2)
             {
-                //new List<DataTable> {new DataTable("row1", 2, 'S')},
-                //new List<DataTable> {new DataTable("row2", 2, 'A')},
-                //new List<DataTable> {new DataTable("row1", 3, 'S')},
-                //new List<DataTable> {new DataTable("row2", 3, 'A')},
-            };
-            List<DataTable> coupleRows = new List<DataTable>();
+                var arrCoupleRows = new string[2];
 
+                var item = dt.ToList();
+                var findField_S = item.Find(f => f.Field3.ToString().ToLower() == "s");
+                var findField_A = item.Find(f => f.Field3.ToString().ToLower() == "a");
 
-            for(int i = 1; i < dataTables.Count; i++)
-            {
-                if (dataTables[i].Field2 == dataTables[i - 1].Field2)
-                {
+                var field_S = findField_S != null && findField_S?.Field3.ToString().ToLower() == "s" ? findField_S.Field1 : "";
+                var field_A = findField_A != null && findField_A?.Field3.ToString().ToLower() == "a" ? findField_A.Field1 : "";
 
-                }
+                arrCoupleRows[0] = "\"" + field_S + "\"";
+                arrCoupleRows[1] = "\"" + field_A + "\"";
+
+                listCoupleRows.Add(arrCoupleRows);
             }
-            //Print(listCoupleRows);
 
             return listCoupleRows;
         }
 
-        //private static void Print(List<List<DataTable>> list)
-        //{
-        //    for (int i = 0; i < list.Count; i++)
-        //    {
-        //        for (int j = 0; j < list[i].Count; j++)
-        //        {
+        public static string PrettyPrintArrayOfArrays(List<string[]> arrayOfArrays)
+        {
+            if (arrayOfArrays == null)
+                return "";
 
-        //        }
-        //    }
-        //}
+            var prettyArrays = new string[arrayOfArrays.Count()];
+
+            for (int i = 0; i < arrayOfArrays.Count(); i++)
+            {
+                prettyArrays[i] = "[" + String.Join(",", arrayOfArrays[i]) + "]";
+            }
+
+            return "[" + String.Join(",", prettyArrays) + "]";
+        }
     }
 }
