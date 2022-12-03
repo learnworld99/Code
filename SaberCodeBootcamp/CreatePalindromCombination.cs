@@ -8,59 +8,76 @@ namespace SaberCodeBootcamp
 {
     internal class CreatePalindromCombination
     {
-       
-        //static public void MainCreateCombinationPalindrom()
-        //{
-        //    int input = 761165575;
-        //    char[] arr = input.ToString().ToCharArray();
+        public static void MainCreateCombinationPalindrom()
+        {
+            int values = 761165575;
 
-        //    Run(arr);
-        //}
+            List<char> allValues = values.ToString().ToCharArray().ToList();
 
-        //private static void Run(char[] arr)
-        //{
-        //    List<string> k_combs = new List<string>();
+            var createCombinations = new CreatePalindromCombination();
+            var combinationsGroup = createCombinations.produceList(allValues);
 
-        //    Stack<char> combs = new Stack<char>();
+            List<string> palindromValues = new List<string>();
 
-        //    for (int k = 1; k < arr.Length; k++)
-        //    {
-        //        k_combs = K_Combination(arr, k);
-        //        for (int i = 0; i < k_combs.Count; i++)
-        //        {
-        //            combs.Push(k_combs[i].ToCharArray().);
-        //        }
-        //    }
+            foreach (var combs in combinationsGroup)
+            {
+                string strCombs = string.Concat(combs);
 
-        //}
+                if(strCombs.Length >= 2)
+                {
+                    bool isPalindrom = CheckPalindrom(strCombs);
+                    if(isPalindrom) palindromValues.Add(strCombs);
+                }
+            }
+            foreach (var item in palindromValues)
+            {
+                Console.WriteLine(item);
+            }
 
-        //private static List<char> K_Combination(List<char> arr, int k)
-        //{
-        //    List<char> combs = new List<char>();
-        //    List<char> head = new List<char>();
-        //    List<char> tailcombs = new List<char>();
+        }
 
+        private static bool CheckPalindrom(string strCombs)
+        {
+            bool valid = true;
+            int indexFromBack = strCombs.Length - 1;
 
-        //    if (k > arr.Count || k <= 0)
-        //        return null;
-        //    if (k == arr.Count)
-        //         combs.Add(arr);
+            for (int i = 0; i < strCombs.Length; i++)
+            {
+                if (strCombs[i] != strCombs[indexFromBack])
+                {
+                    valid = false;
+                    break;
+                }
+                indexFromBack--;
+            }
 
-        //    if(k == 1)
-        //    {
-        //        for (int i = 0; i < arr.Count; i++)
-        //        {
-        //            combs.Add(arr[i]);
-        //        }
+            return valid;
+        }
 
-        //        return combs;
-        //    }
+        private IEnumerable<int> constructSetFromBits(int i)
+        {
+            for (int n = 0; i != 0; i /= 2, n++)
+            {
+                if ((i & 1) != 0)
+                    yield return n;
+            }
+        }
 
-        //    for (int i = 0; i < arr.Count; i++)
-        //    {
-        //        head = arr.ToList().GetRange(i, i + 1);
-        //        tailcombs = K_Combination(arr.ToList().GetRange(i + 1),  k - 1);
-        //    }
-        //}
+        //List<string> allValues = new List<string>()
+        //{ "A1", "A2", "A3", "B1", "B2", "C1" };
+
+        private IEnumerable<List<char>> produceEnumeration(List<char> allValues)
+        {
+            for (int i = 0; i < (1 << allValues.Count); i++)
+            {
+                yield return
+                    constructSetFromBits(i).Select(n => allValues[n]).ToList();
+            }
+        }
+
+        public  List<List<char>> produceList(List<char> allValues)
+        {
+            return produceEnumeration(allValues).ToList();
+        }
     }
 }
