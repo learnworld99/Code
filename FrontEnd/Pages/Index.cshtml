@@ -2,16 +2,16 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
-    int totalRow = 0;
+    int totalRow = 8;
 }
 
 <div class="text-center">
     <h3 class="text-center">Product</h3>
     
-    <button onclick="return AddRow(@totalRow)" class="my-3 float-start btn btn-success">Add Row</button>
+    <button onclick="return AddRow()" class="my-3 float-start btn btn-success">Add Row</button>
 
 
-    <table class="table">
+    <table id="table-dinamis" class="table">
        <thead class="thead-dark">
         <tr>
             <th scope="col">No</th>
@@ -21,7 +21,7 @@
         </thead>
 
         <tbody>
-           @{
+         @*  @{
                for(int i = 1; i <= totalRow; i++)
                {
                                 <tr>
@@ -30,7 +30,7 @@
                                     <td></td>
                                 </tr>
                }
-           }
+           }*@
         </tbody>
 
     </table>
@@ -39,6 +39,12 @@
 
 <script>
     function AddRow(totalRow) {
-        return totalRow+1;
+        var table = document.getElementById("table-dinamis");
+        var row = table.insertRow(0);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        cell1.innerHTML = "NEW CELL1";
+        cell2.innerHTML = "NEW CELL2";
     }
+    
 </script>

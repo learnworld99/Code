@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+th,td {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+#data {
+    margin-bottom: 10px;
+}
+
+#data input, button {
+    padding: 10px;
+    width: 90px;
+}
+input {
+    display: none;
+}
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="data">
+            <input type="number" id="no" value="1">
+            <button>Add</button>
+        </div>
+
+        <table>
+            <tr>
+                <th>No</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+        </table>
+
+    </div>
+
+
+    <script>
+
+let btnAdd = document.querySelector('button');
+let table = document.querySelector('table');
+
+
+let noInput = document.querySelector('#no');
+
+btnAdd.addEventListener('click', () => {
+    let no = noInput.value++;
+ 
+    let template = `
+                <tr>
+                    <td>${no}</td>
+                  
+                    <td></td>
+                    <td></td>
+                </tr>`;
+
+    table.innerHTML += template;
+});
+    </script>
+    
+</body>
+</html>

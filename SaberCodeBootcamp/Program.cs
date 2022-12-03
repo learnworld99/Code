@@ -11,13 +11,13 @@ namespace SaberCodeBootcamp
        
         static void Main(string[] args)
         {
-            LoopingPattern.MainLoop(5);
+            //LoopingPattern.MainLoop(5);
 
             //AssociateArray.MainAssociateArray();
 
             //CreatePalindromCombination.MainCreateCombinationPalindrom();
 
-            //GetDomainUrl.PrintDomainUrl();
+            GetDomainUrl.PrintDomainUrl();
         }
     }
 }
