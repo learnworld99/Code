@@ -8,9 +8,9 @@ namespace SaberCodeBootcamp
 {
     internal class LoopingPattern
     {
-        public static void MainLoop(int r)
+        public static void MainLoop()
         {
-            int n = r;
+            int n = 7;
             string pattern = string.Concat(Enumerable.Repeat("*#%", n));
 
             for (int i = 0; i < n; i++)

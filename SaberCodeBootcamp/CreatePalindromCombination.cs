@@ -63,9 +63,6 @@ namespace SaberCodeBootcamp
             }
         }
 
-        //List<string> allValues = new List<string>()
-        //{ "A1", "A2", "A3", "B1", "B2", "C1" };
-
         private IEnumerable<List<char>> produceEnumeration(List<char> allValues)
         {
             for (int i = 0; i < (1 << allValues.Count); i++)
